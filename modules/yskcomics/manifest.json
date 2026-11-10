@@ -1,0 +1,55 @@
+{
+  "allowedHosts": [
+    "ysk-comics.com",
+    "www.ysk-comics.com",
+    "api.ysk-comics.com",
+    "cdn.ysk-comics.com"
+  ],
+  "attribution": {
+    "author": "Sy223271",
+    "authorizationURL": null,
+    "licenseName": null,
+    "licenseURL": null,
+    "website": "https://www.ysk-comics.com"
+  },
+  "baseURL": "https://www.ysk-comics.com",
+  "capabilities": [
+    "popular",
+    "latest",
+    "search",
+    "details",
+    "chapters",
+    "images",
+    "imageRequest",
+    "discovery"
+  ],
+  "contentRating": "safe",
+  "contentType": "pageImages",
+  "contractVersion": 1,
+  "description": "Mainstream comics reader (Marvel, DC, indie) with a JSON API: keyword search, issue lists, and direct CDN page images.",
+  "entry": {
+    "path": "modules/yskcomics/index.js",
+    "sha256": "3c36642e771a0bad56d5ec1ed9a6dca22751d74c819f06efd84441730fbcc366"
+  },
+  "familyID": "yskcomics",
+  "icon": {
+    "path": "modules/yskcomics/icon.png",
+    "sha256": "7138abc897b077a00df63066aa5ccd76593132b00b2ec6a8ababde982083a8c6"
+  },
+  "id": "yskcomics",
+  "language": "en",
+  "legacyIDs": [],
+  "limits": {
+    "cacheTTLSeconds": 900,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 8388608,
+    "maxScriptBytes": 262144,
+    "timeoutMilliseconds": 25000
+  },
+  "minimumAppVersion": "1.0.0",
+  "name": "YSK Comics",
+  "releaseTrack": "beta",
+  "status": "active",
+  "universalLink": "https://github.com/Sy223271/7q4m-src/tree/main/modules/yskcomics",
+  "version": "1.0.5"
+}

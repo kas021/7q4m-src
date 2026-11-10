@@ -1,0 +1,57 @@
+{
+  "allowedHosts": [
+    "readichithewitch.com",
+    "www.readichithewitch.com",
+    "ww2.readichithewitch.com",
+    "cdn.readichithewitch.com",
+    "cdn.imgchest.com",
+    "i.imgur.com",
+    "raw.githubusercontent.com"
+  ],
+  "attribution": {
+    "author": "Sy223271",
+    "authorizationURL": null,
+    "licenseName": null,
+    "licenseURL": null,
+    "website": "https://readichithewitch.com"
+  },
+  "baseURL": "https://readichithewitch.com",
+  "capabilities": [
+    "popular",
+    "latest",
+    "search",
+    "details",
+    "chapters",
+    "images",
+    "imageRequest",
+    "discovery"
+  ],
+  "contentRating": "suggestive",
+  "contentType": "pageImages",
+  "contractVersion": 1,
+  "entry": {
+    "path": "modules/ichi-the-witch/index.js",
+    "sha256": "97adc86e87e8e4625b6c55cb5503618b7585beff4bcc7cbe1c2e8922b1bc17ab"
+  },
+  "familyID": "ichi-the-witch",
+  "icon": {
+    "path": "modules/ichi-the-witch/icon-v1.0.2.png",
+    "sha256": "cb7b2c6c54021e4dac5ba0d016c627929911d9b665791cf949e24f24d53ea70a"
+  },
+  "id": "ichi-the-witch",
+  "language": "en",
+  "legacyIDs": [],
+  "limits": {
+    "cacheTTLSeconds": 900,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 8388608,
+    "maxScriptBytes": 262144,
+    "timeoutMilliseconds": 25000
+  },
+  "minimumAppVersion": "1.0.0",
+  "name": "Ichi the Witch",
+  "releaseTrack": "beta",
+  "status": "active",
+  "universalLink": "https://github.com/Sy223271/7q4m-src/tree/main/modules/ichi-the-witch",
+  "version": "1.0.3"
+}

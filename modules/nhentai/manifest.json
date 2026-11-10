@@ -1,0 +1,50 @@
+{
+  "allowedHosts": [
+    "nhentai.net",
+    "*.nhentai.net"
+  ],
+  "attribution": {
+    "author": "Sy223271",
+    "website": "https://nhentai.net"
+  },
+  "baseURL": "https://nhentai.net",
+  "capabilities": [
+    "popular",
+    "latest",
+    "search",
+    "tags",
+    "details",
+    "chapters",
+    "images",
+    "imageRequest",
+    "discovery"
+  ],
+  "contentRating": "adult",
+  "contentType": "pageImages",
+  "contractVersion": 1,
+  "entry": {
+    "path": "modules/nhentai/index.js",
+    "sha256": "261d6103d7fe7891b5c2e42b291609986905a9207a3f96e4cc964d8564c820ea"
+  },
+  "familyID": "nhentai",
+  "icon": {
+    "path": "modules/nhentai/icon.png",
+    "sha256": "4b0fc4e635ba947f004c4e05b132b6c223e3eb3aa9363067667ad527cdf31367"
+  },
+  "id": "nhentai",
+  "isFlagship": true,
+  "language": "en",
+  "limits": {
+    "cacheTTLSeconds": 300,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 16777216,
+    "maxScriptBytes": 524288,
+    "timeoutMilliseconds": 30000
+  },
+  "minimumAppVersion": "1.0.0",
+  "name": "nhentai",
+  "releaseTrack": "stable",
+  "status": "active",
+  "universalLink": "https://github.com/Sy223271/7q4m-src/tree/main/modules/nhentai",
+  "version": "1.0.0"
+}

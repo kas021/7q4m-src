@@ -1,0 +1,58 @@
+{
+  "allowedHosts": [
+    "readsakadays.com",
+    "www.readsakadays.com",
+    "ww1.readsakadays.com",
+    "ww2.readsakadays.com",
+    "cdn.readsakadays.com",
+    "cdn.imgchest.com",
+    "i.imgur.com",
+    "raw.githubusercontent.com"
+  ],
+  "attribution": {
+    "author": "Sy223271",
+    "authorizationURL": null,
+    "licenseName": null,
+    "licenseURL": null,
+    "website": "https://readsakadays.com"
+  },
+  "baseURL": "https://ww2.readsakadays.com",
+  "capabilities": [
+    "popular",
+    "latest",
+    "search",
+    "details",
+    "chapters",
+    "images",
+    "imageRequest",
+    "discovery"
+  ],
+  "contentRating": "suggestive",
+  "contentType": "pageImages",
+  "contractVersion": 1,
+  "entry": {
+    "path": "modules/sakamoto-days/index.js",
+    "sha256": "b907c80b8278c75bd90c5ee09d42e24b4a3edc579d55d5f48e87dbda5f967f05"
+  },
+  "familyID": "sakamoto-days",
+  "icon": {
+    "path": "modules/sakamoto-days/icon-v1.0.2.png",
+    "sha256": "fcd11baf14b31f738bf93d0aa26f74c0be131879082bfb6ba6ca55593145021b"
+  },
+  "id": "sakamoto-days",
+  "language": "en",
+  "legacyIDs": [],
+  "limits": {
+    "cacheTTLSeconds": 900,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 8388608,
+    "maxScriptBytes": 262144,
+    "timeoutMilliseconds": 25000
+  },
+  "minimumAppVersion": "1.0.0",
+  "name": "Sakamoto Days",
+  "releaseTrack": "beta",
+  "status": "active",
+  "universalLink": "https://github.com/Sy223271/7q4m-src/tree/main/modules/sakamoto-days",
+  "version": "1.0.3"
+}

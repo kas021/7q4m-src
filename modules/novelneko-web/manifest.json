@@ -1,0 +1,45 @@
+{
+  "allowedHosts": [
+    "novelneko.fr"
+  ],
+  "attribution": {
+    "author": "Sy223271",
+    "website": "https://novelneko.fr/webnovels/"
+  },
+  "baseURL": "https://novelneko.fr/webnovels/",
+  "capabilities": [
+    "search",
+    "details",
+    "chapters",
+    "text",
+    "discovery"
+  ],
+  "contentRating": "unknown",
+  "contentType": "text",
+  "contractVersion": 1,
+  "entry": {
+    "path": "modules/novelneko-web/index.js",
+    "sha256": "80bc01da8b640d72c8e0fdca3139b2f5666880ecb68de2cceb0fd74291b11469"
+  },
+  "familyID": "novelneko-web",
+  "icon": {
+    "path": "modules/novelneko-web/icon.png",
+    "sha256": "7430c04b3aaa06a57cab6d1fab557638161f5396c27beaa3331c4029ff149e06"
+  },
+  "id": "novelneko-web",
+  "language": "fr",
+  "legacyIDs": [],
+  "limits": {
+    "cacheTTLSeconds": 300,
+    "maxConcurrentRequests": 3,
+    "maxResponseBytes": 8388608,
+    "maxScriptBytes": 524288,
+    "timeoutMilliseconds": 30000
+  },
+  "minimumAppVersion": "1.0.0",
+  "name": "NovelNeko Web-Novels",
+  "releaseTrack": "beta",
+  "status": "active",
+  "universalLink": "https://github.com/Sy223271/7q4m-src/tree/main/modules/novelneko-web",
+  "version": "0.1.5"
+}

@@ -1,0 +1,77 @@
+{
+  "search": {
+    "items": [
+      {
+        "id": "https://thekagurabachimanga.com/",
+        "href": "https://thekagurabachimanga.com/",
+        "title": "Kagurabachi",
+        "image": "https://img.thekagurabachimanga.com/uploads/Kagurabachi-manga.webp"
+      }
+    ],
+    "hasMore": false
+  },
+  "details": {
+    "id": "https://thekagurabachimanga.com/",
+    "href": "https://thekagurabachimanga.com/",
+    "url": "https://thekagurabachimanga.com/",
+    "title": "Kagurabachi",
+    "description": "Fixture description for Kagurabachi.",
+    "image": "https://img.thekagurabachimanga.com/uploads/Kagurabachi-manga.webp",
+    "authors": [],
+    "author": "",
+    "genres": [],
+    "status": "Ongoing"
+  },
+  "chapters": [
+    {
+      "id": "https://thekagurabachimanga.com/manga/kagurabachi-chapter-3/",
+      "href": "https://thekagurabachimanga.com/manga/kagurabachi-chapter-3/",
+      "url": "https://thekagurabachimanga.com/manga/kagurabachi-chapter-3/",
+      "title": "Chapter 3",
+      "number": 3,
+      "releaseDate": null,
+      "language": "en"
+    },
+    {
+      "id": "https://thekagurabachimanga.com/manga/kagurabachi-chapter-2/",
+      "href": "https://thekagurabachimanga.com/manga/kagurabachi-chapter-2/",
+      "url": "https://thekagurabachimanga.com/manga/kagurabachi-chapter-2/",
+      "title": "Chapter 2",
+      "number": 2,
+      "releaseDate": null,
+      "language": "en"
+    },
+    {
+      "id": "https://thekagurabachimanga.com/manga/kagurabachi-chapter-1/",
+      "href": "https://thekagurabachimanga.com/manga/kagurabachi-chapter-1/",
+      "url": "https://thekagurabachimanga.com/manga/kagurabachi-chapter-1/",
+      "title": "Chapter 1",
+      "number": 1,
+      "releaseDate": null,
+      "language": "en"
+    }
+  ],
+  "images": [
+    {
+      "url": "https://img.thekagurabachimanga.com/uploads/01-kagurabachi-chapter-1.webp",
+      "headers": {
+        "Accept": "image/avif,image/webp,image/*,*/*",
+        "Referer": "https://thekagurabachimanga.com/"
+      }
+    },
+    {
+      "url": "https://img.thekagurabachimanga.com/uploads/02-kagurabachi-chapter-1.webp",
+      "headers": {
+        "Accept": "image/avif,image/webp,image/*,*/*",
+        "Referer": "https://thekagurabachimanga.com/"
+      }
+    },
+    {
+      "url": "https://img.thekagurabachimanga.com/uploads/03-kagurabachi-chapter-1.webp",
+      "headers": {
+        "Accept": "image/avif,image/webp,image/*,*/*",
+        "Referer": "https://thekagurabachimanga.com/"
+      }
+    }
+  ]
+}

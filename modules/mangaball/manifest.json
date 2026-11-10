@@ -1,0 +1,55 @@
+{
+  "allowedHosts": [
+    "mangaball.net",
+    "*.poke-black-and-white.net",
+    "*.red-and-blue.net",
+    "dmd-image-content-sng-1.imggo.net"
+  ],
+  "attribution": {
+    "author": "Sy223271",
+    "authorizationURL": null,
+    "licenseName": null,
+    "licenseURL": null,
+    "website": "https://mangaball.net"
+  },
+  "baseURL": "https://mangaball.net",
+  "capabilities": [
+    "popular",
+    "latest",
+    "search",
+    "details",
+    "chapters",
+    "images",
+    "imageRequest",
+    "discovery"
+  ],
+  "contentRating": "suggestive",
+  "contentType": "pageImages",
+  "contractVersion": 1,
+  "description": "Retired source - MangaBall requires a browser verification that the app cannot complete.",
+  "entry": {
+    "path": "modules/mangaball/index.js",
+    "sha256": "5425ea3687a63a501cf54ee0684651763a93ffb53e74d9524765ef2069ae3773"
+  },
+  "familyID": "mangaball",
+  "icon": {
+    "path": "modules/mangaball/icon.png",
+    "sha256": "eeeacb45c7710193a674ac462106550f6e1d27ddc7c7940e32952eebbabfb2fc"
+  },
+  "id": "mangaball",
+  "language": "multi",
+  "legacyIDs": [],
+  "limits": {
+    "cacheTTLSeconds": 300,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 16777216,
+    "maxScriptBytes": 262144,
+    "timeoutMilliseconds": 30000
+  },
+  "minimumAppVersion": "1.0.0",
+  "name": "MangaBall (Retired)",
+  "releaseTrack": "beta",
+  "status": "retired",
+  "universalLink": "https://github.com/Sy223271/7q4m-src/tree/main/modules/mangaball",
+  "version": "1.0.4"
+}

@@ -1,0 +1,222 @@
+{
+  "modules": {
+    "asura-scans": {
+      "chapterScope": "selected-series-dom",
+      "requiredCodeFragments": [
+        "function chaptersFromHTML(html, href)",
+        "ChapterListReact",
+        "sourceChapter.series_slug"
+      ]
+    },
+    "atsu": {
+      "chapterScope": "api"
+    },
+    "attack-on-titan": {
+      "chapterScope": "fixed-series-dom"
+    },
+    "audioaz": {
+      "chapterScope": "source-page-dom"
+    },
+    "beginning-after-the-end": {
+      "chapterScope": "fixed-series-dom"
+    },
+    "black-clover": {
+      "chapterScope": "fixed-series-dom"
+    },
+    "blue-lock": {
+      "chapterScope": "fixed-series-dom",
+      "requiredCodeFragments": [
+        "function parseChapterList(html, base)",
+        "chapterURLParts"
+      ]
+    },
+    "chikari": {
+      "chapterScope": "api",
+      "requiredCodeFragments": [
+        "data.slug !== slug",
+        "data.series_slug !== slug",
+        "Number(data.number) !== number"
+      ]
+    },
+    "colorizedmanga": {
+      "chapterScope": "selected-series-dom",
+      "requiredCodeFragments": [
+        "function parseChapters(html, series)",
+        "series.slug"
+      ]
+    },
+    "comicfury": {
+      "chapterScope": "external-archive"
+    },
+    "comicgrowl": {
+      "chapterScope": "endpoint-scoped"
+    },
+    "dbmultiverse": {
+      "chapterScope": "fixed-series"
+    },
+    "gachiakuta": {
+      "chapterScope": "fixed-series-dom"
+    },
+    "goldenaudiobooks": {
+      "chapterScope": "source-page-dom"
+    },
+    "grabber-zone": {
+      "chapterScope": "selected-series-dom",
+      "requiredCodeFragments": [
+        "function parseChaptersHTML(html, seriesURL)",
+        "seriesPrefix"
+      ]
+    },
+    "haikyuu": {
+      "chapterScope": "fixed-series-dom"
+    },
+    "hentaifox": {
+      "chapterScope": "source-page-dom"
+    },
+    "hot-audiobooks": {
+      "chapterScope": "source-page-dom"
+    },
+    "ichi-the-witch": {
+      "chapterScope": "fixed-series-dom",
+      "requiredCodeFragments": [
+        "function parseChapterList(html, base)",
+        "chapterURLParts"
+      ]
+    },
+    "inkora": {
+      "chapterScope": "api"
+    },
+    "internet-archive": {
+      "chapterScope": "resource-derived"
+    },
+    "internet-archive-publications": {
+      "chapterScope": "resource-derived"
+    },
+    "kagurabachi": {
+      "chapterScope": "fixed-series-dom"
+    },
+    "kingdom": {
+      "chapterScope": "fixed-series-dom",
+      "requiredCodeFragments": [
+        "function parseChapterList(html, base = BASE_URL)",
+        "chapterURLParts"
+      ]
+    },
+    "librivox": {
+      "chapterScope": "api"
+    },
+    "lnori": {
+      "chapterScope": "selected-series-dom",
+      "requiredCodeFragments": [
+        "function parseVolumes(html, seriesURL)",
+        "sourcePath(id, \"series\")"
+      ]
+    },
+    "mangaball": {
+      "chapterScope": "api"
+    },
+    "mangadex-es": {
+      "chapterScope": "api"
+    },
+    "mangafire-v2": {
+      "chapterScope": "api"
+    },
+    "mangakatana": {
+      "chapterScope": "selected-series-dom",
+      "requiredCodeFragments": [
+        "function parseChaptersHTML(html, seriesURL)",
+        "seriesPrefix"
+      ]
+    },
+    "mangaworld": {
+      "chapterScope": "selected-series-dom",
+      "requiredCodeFragments": [
+        "function extractChapterObjects(html)"
+      ]
+    },
+    "mgread": {
+      "chapterScope": "selected-series-dom",
+      "requiredCodeFragments": [
+        "function parseChaptersHTML(html, seriesURL)",
+        "seriesPrefix"
+      ]
+    },
+    "nhentai": {
+      "chapterScope": "api"
+    },
+    "novelfire": {
+      "chapterScope": "selected-series-dom",
+      "requiredCodeFragments": [
+        "function chaptersFromHTML(html, slug)",
+        "match[3].toLowerCase() !== slug"
+      ]
+    },
+    "novelfrance": {
+      "chapterScope": "api"
+    },
+    "novelneko-light": {
+      "chapterScope": "selected-series-dom",
+      "requiredCodeFragments": [
+        "function parseVolumes(html, series)"
+      ]
+    },
+    "novelneko-web": {
+      "chapterScope": "selected-series-dom",
+      "requiredCodeFragments": [
+        "function chapterFileCandidates"
+      ]
+    },
+    "oceanofpdf": {
+      "chapterScope": "resource-derived",
+      "requiredCodeFragments": [
+        "function resourceFromHTML(html, fileName)",
+        "actualName !== fileName"
+      ]
+    },
+    "one-punch-man": {
+      "chapterScope": "fixed-series-dom",
+      "requiredCodeFragments": [
+        "function parseChapterList(html, base)",
+        "chapterURLParts"
+      ]
+    },
+    "onepiece-manga-online": {
+      "chapterScope": "fixed-series-dom"
+    },
+    "poseidon-scans": {
+      "chapterScope": "api"
+    },
+    "sakamoto-days": {
+      "chapterScope": "fixed-series-dom",
+      "requiredCodeFragments": [
+        "function parseChapterList(html, base)",
+        "chapterURLParts"
+      ]
+    },
+    "snafu": {
+      "chapterScope": "source-scoped"
+    },
+    "solo-leveling": {
+      "chapterScope": "fixed-series-dom"
+    },
+    "synthetiq-manga-v1": {
+      "chapterScope": "api"
+    },
+    "weeb-central": {
+      "chapterScope": "fixed-series"
+    },
+    "weebcentral-v2": {
+      "chapterScope": "endpoint-scoped"
+    },
+    "xkcd": {
+      "chapterScope": "api"
+    },
+    "yskcomics": {
+      "chapterScope": "api",
+      "requiredCodeFragments": [
+        "function fetchAllChapters(slug)"
+      ]
+    }
+  },
+  "schemaVersion": 1
+}

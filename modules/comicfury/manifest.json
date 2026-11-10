@@ -1,0 +1,52 @@
+{
+  "allowedHosts": [
+    "comicfury.com",
+    "*.comicfury.com",
+    "*.thecomicseries.com",
+    "*.webcomic.ws",
+    "img.comicfury.com"
+  ],
+  "attribution": {
+    "author": "Sy223271",
+    "website": "https://comicfury.com"
+  },
+  "baseURL": "https://comicfury.com",
+  "capabilities": [
+    "popular",
+    "latest",
+    "search",
+    "details",
+    "chapters",
+    "images",
+    "imageRequest",
+    "discovery"
+  ],
+  "contentRating": "safe",
+  "contentType": "pageImages",
+  "contractVersion": 1,
+  "entry": {
+    "path": "modules/comicfury/index.js",
+    "sha256": "7247a8bd6ca33f6d4cd36c9bb3daed676f0f6ef1a767c78012ac3dde347f6b09"
+  },
+  "familyID": "comicfury",
+  "icon": {
+    "path": "modules/comicfury/icon.png",
+    "sha256": "d496efa9ea92e4f0b66d4ea25bc6c3e8ff6f47bff681cd0a628744075e5f68ec"
+  },
+  "id": "comicfury",
+  "language": "en",
+  "legacyIDs": [],
+  "limits": {
+    "cacheTTLSeconds": 900,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 16777216,
+    "maxScriptBytes": 524288,
+    "timeoutMilliseconds": 30000
+  },
+  "minimumAppVersion": "1.0.0",
+  "name": "Comic Fury",
+  "releaseTrack": "beta",
+  "status": "active",
+  "universalLink": "https://github.com/Sy223271/7q4m-src/tree/main/modules/comicfury",
+  "version": "1.0.2"
+}

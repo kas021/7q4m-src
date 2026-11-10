@@ -1,0 +1,53 @@
+{
+  "allowedHosts": [
+    "thesololevelingmanga.info",
+    "www.thesololevelingmanga.info",
+    "*.thesololevelingmanga.info"
+  ],
+  "attribution": {
+    "author": "Sy223271",
+    "authorizationURL": null,
+    "licenseName": null,
+    "licenseURL": null,
+    "website": "https://thesololevelingmanga.info"
+  },
+  "baseURL": "https://thesololevelingmanga.info",
+  "capabilities": [
+    "popular",
+    "latest",
+    "search",
+    "details",
+    "chapters",
+    "images",
+    "imageRequest",
+    "discovery"
+  ],
+  "contentRating": "suggestive",
+  "contentType": "pageImages",
+  "contractVersion": 1,
+  "entry": {
+    "path": "modules/solo-leveling/index.js",
+    "sha256": "e583de3cf2209e0971582dccd1ecde0c2e42a1db629edc75d022a96cfa1300bc"
+  },
+  "familyID": "solo-leveling",
+  "icon": {
+    "path": "modules/solo-leveling/icon.png",
+    "sha256": "9dc87ed50f0bfc83a111f1b9e17db69e8f7e772e880253cdfcab15cc62b9adf1"
+  },
+  "id": "solo-leveling",
+  "language": "en",
+  "legacyIDs": [],
+  "limits": {
+    "cacheTTLSeconds": 900,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 8388608,
+    "maxScriptBytes": 262144,
+    "timeoutMilliseconds": 25000
+  },
+  "minimumAppVersion": "1.0.0",
+  "name": "Solo Leveling",
+  "releaseTrack": "beta",
+  "status": "active",
+  "universalLink": "https://github.com/Sy223271/7q4m-src/tree/main/modules/solo-leveling",
+  "version": "1.0.3"
+}

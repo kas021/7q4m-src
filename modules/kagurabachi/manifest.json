@@ -1,0 +1,53 @@
+{
+  "allowedHosts": [
+    "thekagurabachimanga.com",
+    "www.thekagurabachimanga.com",
+    "*.thekagurabachimanga.com"
+  ],
+  "attribution": {
+    "author": "Sy223271",
+    "authorizationURL": null,
+    "licenseName": null,
+    "licenseURL": null,
+    "website": "https://thekagurabachimanga.com"
+  },
+  "baseURL": "https://thekagurabachimanga.com",
+  "capabilities": [
+    "popular",
+    "latest",
+    "search",
+    "details",
+    "chapters",
+    "images",
+    "imageRequest",
+    "discovery"
+  ],
+  "contentRating": "suggestive",
+  "contentType": "pageImages",
+  "contractVersion": 1,
+  "entry": {
+    "path": "modules/kagurabachi/index.js",
+    "sha256": "510e46b8847d80969477d346395733749a4fa640f841c4227335d61fff77c523"
+  },
+  "familyID": "kagurabachi",
+  "icon": {
+    "path": "modules/kagurabachi/icon.png",
+    "sha256": "865c2fde6848e37bd60914fa7a7d0e6af0ba4a626aab50d4f28aff3f8858063e"
+  },
+  "id": "kagurabachi",
+  "language": "en",
+  "legacyIDs": [],
+  "limits": {
+    "cacheTTLSeconds": 900,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 8388608,
+    "maxScriptBytes": 262144,
+    "timeoutMilliseconds": 25000
+  },
+  "minimumAppVersion": "1.0.0",
+  "name": "Kagurabachi",
+  "releaseTrack": "beta",
+  "status": "active",
+  "universalLink": "https://github.com/Sy223271/7q4m-src/tree/main/modules/kagurabachi",
+  "version": "1.0.4"
+}

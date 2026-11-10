@@ -1,0 +1,133 @@
+import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import vm from "node:vm";
+import { fileURLToPath } from "node:url";
+
+const root = path.dirname(fileURLToPath(import.meta.url));
+const fixture = async (name) => readFile(path.join(root, "fixtures", name), "utf8");
+const json = async (name) => JSON.parse(await fixture(name));
+const plain = (value) => JSON.parse(JSON.stringify(value));
+
+function response(body, contentType = "text/html") {
+  return {
+    status: 200,
+    ok: true,
+    headers: { "content-type": contentType },
+    contentType,
+    body,
+    bodyDropped: false,
+    text: async () => body,
+    json: async () => JSON.parse(body),
+  };
+}
+
+async function loadModule(fetchv2) {
+  const source = await readFile(path.join(root, "index.js"), "utf8");
+  const context = vm.createContext({ URL, URLSearchParams, console, fetchv2 });
+  new vm.Script(source, { filename: "modules/novelneko-light/index.js" }).runInContext(context);
+  return context.SynthetiqModule;
+}
+
+const catalog = JSON.stringify(await json("catalog.json"));
+const pages = {
+  safe: await fixture("safe.html"),
+  unsafe: await fixture("unsafe.html"),
+  missing: await fixture("missing.html"),
+  restricted: await fixture("restricted.html"),
+  "volume-missing": await fixture("volume-missing.html"),
+  herostome: await fixture("herostome.html"),
+  outside: await fixture("outside.html"),
+  "ecchi-soft": await fixture("ecchi-soft.html"),
+};
+
+function bridge(url, headers, method, body, options) {
+  assert.equal(method, "GET");
+  assert.equal(body, null);
+  assert.equal(headers.Referer, "https://novelneko.fr/lightnovels/");
+  assert.equal(options.followRedirects, true);
+  if (url.endsWith("/lightnovel.json")) return response(catalog, "application/json");
+  const match = url.match(/\/lightnovels\/(safe|unsafe|missing|restricted|volume-missing|herostome|outside|ecchi-soft)\/$/);
+  if (match) return response(pages[match[1]]);
+  throw new Error(`Unexpected URL: ${url}`);
+}
+
+const module = await loadModule(bridge);
+
+assert.equal(typeof module.searchResults, "function");
+assert.equal(typeof module.extractDetails, "function");
+assert.equal(typeof module.extractChapters, "function");
+assert.equal(typeof module.extractResources, "function");
+
+const expectedBrowsable = [
+  "Safe French Light Novel",
+  "Unsafe Hentai Light Novel",
+  "Restricted Volume Metadata",
+  "Missing Volume Safety Metadata",
+];
+const search = await module.searchResults("", 1);
+assert.deepEqual(plain(search.items.map((item) => item.title)), expectedBrowsable);
+assert.equal(search.hasMore, false);
+assert.equal(search.items[0].volumeCount, 4);
+
+const details = await module.extractDetails("https://novelneko.fr/lightnovels/safe/");
+assert.equal(details.author, "Auteur Test");
+assert.deepEqual(plain(details.genres), ["Action", "Fantasy"]);
+assert.deepEqual(plain(details.volumes.map((volume) => volume.number)), [1, 1.5, 2, 100]);
+assert.ok(details.volumes.every((volume) => volume.url.startsWith("https://novelneko.fr/lightnovels/safe/volumes/")));
+
+const chapters = await module.extractChapters(details.id);
+assert.deepEqual(plain(chapters.map((chapter) => chapter.title)), ["Tome 1", "Tome 1.5", "Tome 2", "Tome 100"]);
+
+const resources = await module.extractResources(details.id);
+assert.deepEqual(plain(resources.map((resource) => resource.format)), ["pdf", "pdf", "pdf", "pdf"]);
+assert.deepEqual(plain(resources.map((resource) => resource.fileName)), ["tome1.pdf", "tome1-5.pdf", "tome2.pdf", "tome100.pdf"]);
+assert.deepEqual(plain(resources.map((resource) => resource.number)), [1, 1.5, 2, 100]);
+assert.deepEqual(plain(resources.map((resource) => resource.url)), plain(details.volumes.map((volume) => volume.url)));
+assert.ok(resources.every((resource) => resource.headers.Referer === details.url));
+
+const feed = await module.searchResults("__feed:popular", 1);
+assert.deepEqual(plain(feed.items.map((item) => item.title)), expectedBrowsable);
+assert.equal(feed.hasMore, false);
+const feedNamed = await module.searchResults("__feed:lightnovels", 1);
+assert.deepEqual(plain(feedNamed), plain(feed));
+
+const home = await module.discoveryHome();
+assert.equal(home.sections.length, 1);
+assert.equal(home.sections[0].id, "lightnovels");
+assert.deepEqual(plain(home.sections[0].items.map((item) => item.title)), expectedBrowsable);
+assert.deepEqual(plain(await module.discoveryFeed("lightnovels", 1)), plain(feedNamed));
+assert.deepEqual(plain(await module.discoveryFeed("bogus", 1)), { items: [], hasMore: false });
+
+assert.deepEqual(plain((await module.searchResults("hentai", 1)).items.map((item) => item.title)), ["Unsafe Hentai Light Novel"]);
+assert.deepEqual(plain((await module.searchResults("restricted", 1)).items.map((item) => item.title)), ["Restricted Volume Metadata"]);
+assert.deepEqual(plain((await module.searchResults("missing", 1)).items.map((item) => item.title)), ["Missing Volume Safety Metadata"]);
+const unsafeDetails = await module.extractDetails("https://novelneko.fr/lightnovels/unsafe/");
+assert.deepEqual(plain(unsafeDetails.genres), ["Fantasy", "Hentai"]);
+assert.equal(unsafeDetails.volumes.length, 1);
+await assert.rejects(() => module.extractDetails("https://novelneko.fr/lightnovels/missing/"), /safety metadata is missing/i);
+const restrictedDetails = await module.extractDetails("https://novelneko.fr/lightnovels/restricted/");
+assert.deepEqual(plain(restrictedDetails.volumes.map((volume) => volume.number)), [1]);
+const volumeMissingDetails = await module.extractDetails("https://novelneko.fr/lightnovels/volume-missing/");
+assert.deepEqual(plain(volumeMissingDetails.volumes.map((volume) => volume.number)), [1, 2]);
+
+const subdirDetails = await module.extractDetails("https://novelneko.fr/lightnovels/herostome/");
+assert.deepEqual(plain(subdirDetails.volumes.map((volume) => volume.number)), [1, 1.5, 2, 100]);
+assert.ok(subdirDetails.volumes.every((volume) => volume.url.startsWith("https://novelneko.fr/lightnovels/herostome/herostome/")));
+await assert.rejects(() => module.extractDetails("https://novelneko.fr/lightnovels/outside/"), /outside its light-novel series directory/i);
+
+const ecchiSoft = await module.extractDetails("https://novelneko.fr/lightnovels/ecchi-soft/");
+assert.deepEqual(plain(ecchiSoft.genres), ["Fantasy", "Ecchi"]);
+assert.equal(ecchiSoft.volumes.length, 1);
+await assert.rejects(() => module.extractDetails("https://example.invalid/lightnovels/safe/"), /out-of-scope|invalid/i);
+
+const manifest = JSON.parse(await readFile(path.join(root, "manifest.json"), "utf8"));
+const hash = async (name) => createHash("sha256").update(await readFile(path.join(root, name))).digest("hex");
+assert.equal(manifest.entry.path, "modules/novelneko-light/index.js");
+assert.equal(manifest.icon.path, "modules/novelneko-light/icon.png");
+assert.equal(manifest.entry.sha256, await hash("index.js"));
+assert.equal(manifest.icon.sha256, await hash("icon.png"));
+assert.deepEqual(Array.from(await readFile(path.join(root, "icon.png"))).slice(0, 8), [137, 80, 78, 71, 13, 10, 26, 10]);
+
+console.log("NovelNeko Light fixture tests passed.");

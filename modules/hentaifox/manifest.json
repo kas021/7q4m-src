@@ -1,0 +1,51 @@
+{
+  "allowedHosts": [
+    "hentaifox.com",
+    "*.hentaifox.com"
+  ],
+  "attribution": {
+    "author": "Sy223271",
+    "website": "https://hentaifox.com"
+  },
+  "baseURL": "https://hentaifox.com",
+  "capabilities": [
+    "popular",
+    "latest",
+    "search",
+    "tags",
+    "details",
+    "chapters",
+    "images",
+    "imageRequest",
+    "discovery",
+    "interactivePage"
+  ],
+  "contentRating": "adult",
+  "contentType": "pageImages",
+  "contractVersion": 1,
+  "entry": {
+    "path": "modules/hentaifox/index.js",
+    "sha256": "97bf489681a65391dcf1b2cb54ccc96a0f5cab818c0b805e5d647f4f7ded2af6"
+  },
+  "familyID": "hentaifox",
+  "icon": {
+    "path": "modules/hentaifox/icon.png",
+    "sha256": "9ac96893eba14be3da85ac16d47ed62de5390d59bac6435af3e7a162cb7fba73"
+  },
+  "id": "hentaifox",
+  "isFlagship": true,
+  "language": "en",
+  "limits": {
+    "cacheTTLSeconds": 300,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 16777216,
+    "maxScriptBytes": 524288,
+    "timeoutMilliseconds": 30000
+  },
+  "minimumAppVersion": "1.0.0",
+  "name": "HentaiFox",
+  "releaseTrack": "stable",
+  "status": "active",
+  "universalLink": "https://github.com/Sy223271/7q4m-src/tree/main/modules/hentaifox",
+  "version": "1.0.0"
+}
