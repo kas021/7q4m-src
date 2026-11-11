@@ -42,7 +42,7 @@
       "version": "1.0.3"
     },
     {
-      "contentRating": "adult",
+      "contentRating": "pornographic",
       "contentType": "pageImages",
       "familyID": "nhentai",
       "icon": {
@@ -53,7 +53,7 @@
       "language": "en",
       "manifest": {
         "path": "modules/nhentai/manifest.json",
-        "sha256": "6a71010bf33ba22d7542e5c9557916bf69b35443c5c377831bac7c35f3c57061"
+        "sha256": "b0c3fbdb9e6aedbab1c6cbea1e14d93e8016333e3e4a7f9bf9a515147f44cd5c"
       },
       "name": "nhentai",
       "releaseTrack": "stable",
@@ -62,7 +62,7 @@
       "version": "1.0.0"
     },
     {
-      "contentRating": "adult",
+      "contentRating": "pornographic",
       "contentType": "pageImages",
       "familyID": "hentaifox",
       "icon": {
@@ -73,7 +73,7 @@
       "language": "en",
       "manifest": {
         "path": "modules/hentaifox/manifest.json",
-        "sha256": "662dc0ec5fd00f67762e9a39d2dd5edbaf4c6fb675c79e506927f7c41b4d7fc3"
+        "sha256": "bd7d17cd93ba5f297712a4eff87a60ee1fe7c32020db8157b8c5ec025ed4f242"
       },
       "name": "HentaiFox",
       "releaseTrack": "stable",
@@ -935,7 +935,7 @@
         "path": "modules/mangadex-es/manifest.json",
         "sha256": "066ed8f3bec92b130256f92b3e34f20e9ac92818ac52253a94cd571e4d6a6ab4"
       },
-      "name": "MangaDex (Espa\u00f1ol)",
+      "name": "MangaDex (Español)",
       "releaseTrack": "beta",
       "status": "active",
       "version": "1.0.2"
