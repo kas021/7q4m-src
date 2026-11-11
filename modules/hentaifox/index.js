@@ -438,7 +438,9 @@
   function feedURLs(feedID, page) {
     const id = normalizeFeedID(feedID);
     const pageNumber = Math.max(1, Math.floor(Number(page) || 1));
-    if (id === "latest" || id === "new" || id === "home") {
+    if (id === "latest" || id === "new" || id === "home" || id === "popular") {
+      // "popular" has no dedicated listing page; the home grid is its shelf, so
+      // load-more continues there instead of dead-ending on an unknown feed.
       if (pageNumber === 1) return [`${BASE_URL}${HOME_PATH}`];
       // The home listing changes template after page 2: page 2 lives at
       // /page/2/ and everything deeper at /pag/N/ (/page/3/ is a 404). The

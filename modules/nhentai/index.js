@@ -32,6 +32,14 @@
 
   const PAGE_SIZE = 25;
   const MAX_PAGE_INDEX = 10000;
+  // Home rails beyond the popular/newest shelves: broad tags that always have
+  // deep catalogues, so the home grid stays rich on every load.
+  const HOME_TAG_RAILS = [
+    { id: "rail-big-breasts", title: "Big Breasts", tag: "big breasts" },
+    { id: "rail-nakadashi", title: "Nakadashi", tag: "nakadashi" },
+    { id: "rail-yuri", title: "Yuri", tag: "yuri" },
+    { id: "rail-full-colour", title: "Full Colour", tag: "full color" },
+  ];
   const REQUEST_HEADERS = {
     Accept: "application/json",
     "User-Agent": "nhsrc/1.0 (+https://github.com/Sy223271/7q4m-src)",
@@ -733,14 +741,27 @@
   }
 
   async function popularItems(currentPage) {
-    if (currentPage > 1) return { items: [], hasMore: false };
+    // Page 1 is the site's daily popular shelf, which the API publishes as one
+    // fixed list with no page parameter. Deeper pages therefore continue on the
+    // newest feed so the grid keeps scrolling instead of dead-ending at 25.
+    if (currentPage > 1) {
+      const deeper = await fetchJSON(
+        `${API_URL}${GALLERIES_PATH}?${buildQuery([
+          ["page", currentPage],
+          ["per_page", PAGE_SIZE],
+        ])}`,
+        LIST_BYTE_HINT,
+      );
+      const cdn = await optionalCdn();
+      return summarizeResults(deeper, cdn ? cdn.thumb : [], currentPage);
+    }
     const payload = await fetchJSON(`${API_URL}${POPULAR_PATH}`, LIST_BYTE_HINT);
     const list = Array.isArray(payload) ? payload : Array.isArray(payload && payload.result) ? payload.result : [];
     if (!list.length) throw new Error("nhentai returned no popular galleries.");
     const cdn = await optionalCdn();
     const items = buildItems(list, cdn ? cdn.thumb : []);
     if (!items.length) throw new Error("nhentai popular galleries were malformed.");
-    return { items, hasMore: false };
+    return { items, hasMore: currentPage < MAX_PAGE_INDEX };
   }
 
   async function discoveryFeed(feedID, page = 1) {
@@ -776,6 +797,14 @@
       }),
     );
     sections.push(await section("random", "Random picks", randomPicks));
+    for (const rail of HOME_TAG_RAILS) {
+      sections.push(
+        await section(rail.id, rail.title, async () => {
+          const { items } = await tagResults(rail.tag, "tag", 1);
+          return items;
+        }),
+      );
+    }
     return { sections };
   }
 

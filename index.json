@@ -53,13 +53,13 @@
       "language": "en",
       "manifest": {
         "path": "modules/nhentai/manifest.json",
-        "sha256": "9e5b8f30d6bca5ac10073d17a0c1e1c5075f789f685dca0c0a673f212a9fd0c0"
+        "sha256": "5cdbceb6fd3c0ba04fc5230e412334a22f5d389603737d9439e5e3843b89a611"
       },
       "name": "nhentai",
       "releaseTrack": "stable",
       "sortPriority": 3,
       "status": "active",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     {
       "contentRating": "suggestive",
@@ -73,13 +73,13 @@
       "language": "en",
       "manifest": {
         "path": "modules/hentaifox/manifest.json",
-        "sha256": "8acb47a548c0e4b0b66d5a4c623bb33c3dd0a00e62fa339ec811cff94a952e43"
+        "sha256": "75342c9537352830a76cf203424918813f2f385382ac563ede1d41656e450073"
       },
       "name": "HentaiFox",
       "releaseTrack": "stable",
       "sortPriority": 4,
       "status": "active",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     {
       "contentRating": "suggestive",
@@ -965,9 +965,9 @@
     "id": "7q4m.sources",
     "name": "7q4m-src",
     "owner": "kas021",
-    "universalLink": "https://github.com/kas021/7q4m-src",
-    "publicKey": "rjziiLDd6TtcUY6lZV1z9CHVV7+Ijajc8eo+pUXiYvo="
+    "publicKey": "rjziiLDd6TtcUY6lZV1z9CHVV7+Ijajc8eo+pUXiYvo=",
+    "universalLink": "https://github.com/kas021/7q4m-src"
   },
   "schemaVersion": 1,
-  "signature": "bPW45VmqnLBvyJYbfVB/c6462PJ7XqpVBNXcOB0EwpMALY1oQSg4ygj1ifXTR5m7TdZf3HBD5eYQYEXDlv9aCQ=="
+  "signature": "F+emy0pS9ANrX9Ca5+OCSKqTeHP6gDOEelaE/Pjx3nKW95pe4vKsUDhwb5thufDjj5sSnrvy0XQg1/jbPzNmDA=="
 }

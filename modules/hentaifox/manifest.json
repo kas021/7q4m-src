@@ -25,7 +25,7 @@
   "contractVersion": 1,
   "entry": {
     "path": "modules/hentaifox/index.js",
-    "sha256": "97bf489681a65391dcf1b2cb54ccc96a0f5cab818c0b805e5d647f4f7ded2af6"
+    "sha256": "c88e42f5784a112cded815601b79edea317e1cabf4400b7f314e5f763d97baba"
   },
   "familyID": "hentaifox",
   "icon": {
@@ -47,6 +47,6 @@
   "name": "HentaiFox",
   "releaseTrack": "stable",
   "status": "active",
-  "universalLink": "https://github.com/Sy223271/7q4m-src/tree/main/modules/hentaifox",
-  "version": "1.0.0"
+  "universalLink": "https://synthetiq.uk/manga/modules/hentaifox",
+  "version": "1.0.1"
 }
