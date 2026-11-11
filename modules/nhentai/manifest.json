@@ -34,6 +34,7 @@
   "id": "nhentai",
   "isFlagship": true,
   "language": "en",
+  "legacyIDs": [],
   "limits": {
     "cacheTTLSeconds": 300,
     "maxConcurrentRequests": 2,

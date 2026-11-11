@@ -35,6 +35,7 @@
   "id": "hentaifox",
   "isFlagship": true,
   "language": "en",
+  "legacyIDs": [],
   "limits": {
     "cacheTTLSeconds": 300,
     "maxConcurrentRequests": 2,
