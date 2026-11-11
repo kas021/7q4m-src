@@ -965,7 +965,9 @@
     "id": "7q4m.sources",
     "name": "7q4m-src",
     "owner": "kas021",
-    "universalLink": "https://github.com/kas021/7q4m-src"
+    "universalLink": "https://github.com/kas021/7q4m-src",
+    "publicKey": "rjziiLDd6TtcUY6lZV1z9CHVV7+Ijajc8eo+pUXiYvo="
   },
-  "schemaVersion": 1
+  "schemaVersion": 1,
+  "signature": "Qg+zO8TVXVKwjqJFvxc4BbB7a/FmmTXCXF1RCJx1+a5FEWGcGQEsgByTi9oWsFFDVc7jPiaApqid1w1R6IQGBQ=="
 }
