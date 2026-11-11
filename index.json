@@ -935,7 +935,7 @@
         "path": "modules/mangadex-es/manifest.json",
         "sha256": "066ed8f3bec92b130256f92b3e34f20e9ac92818ac52253a94cd571e4d6a6ab4"
       },
-      "name": "MangaDex (Español)",
+      "name": "MangaDex (Espa\u00f1ol)",
       "releaseTrack": "beta",
       "status": "active",
       "version": "1.0.2"
@@ -961,11 +961,11 @@
     }
   ],
   "repository": {
-    "homepage": "https://github.com/Sy223271/7q4m-src",
+    "homepage": "https://github.com/kas021/7q4m-src",
     "id": "7q4m.sources",
     "name": "7q4m-src",
-    "owner": "Sy223271",
-    "universalLink": "https://github.com/Sy223271/7q4m-src"
+    "owner": "kas021",
+    "universalLink": "https://github.com/kas021/7q4m-src"
   },
   "schemaVersion": 1
 }
