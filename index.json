@@ -42,7 +42,7 @@
       "version": "1.0.3"
     },
     {
-      "contentRating": "pornographic",
+      "contentRating": "suggestive",
       "contentType": "pageImages",
       "familyID": "nhentai",
       "icon": {
@@ -53,7 +53,7 @@
       "language": "en",
       "manifest": {
         "path": "modules/nhentai/manifest.json",
-        "sha256": "b0c3fbdb9e6aedbab1c6cbea1e14d93e8016333e3e4a7f9bf9a515147f44cd5c"
+        "sha256": "6ea761edd02605045fafdcd701cfe2658a20522d5e80a7b736c621fde8a84bb2"
       },
       "name": "nhentai",
       "releaseTrack": "stable",
@@ -62,7 +62,7 @@
       "version": "1.0.0"
     },
     {
-      "contentRating": "pornographic",
+      "contentRating": "suggestive",
       "contentType": "pageImages",
       "familyID": "hentaifox",
       "icon": {
@@ -73,7 +73,7 @@
       "language": "en",
       "manifest": {
         "path": "modules/hentaifox/manifest.json",
-        "sha256": "bd7d17cd93ba5f297712a4eff87a60ee1fe7c32020db8157b8c5ec025ed4f242"
+        "sha256": "09cc1a5a3772547e8955964e7847ed6f772b2f43e28754c5a2a88a673d91a681"
       },
       "name": "HentaiFox",
       "releaseTrack": "stable",
