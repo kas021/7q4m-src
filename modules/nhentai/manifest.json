@@ -24,7 +24,7 @@
   "contractVersion": 1,
   "entry": {
     "path": "modules/nhentai/index.js",
-    "sha256": "0892e09b50dfaa362e6f8b13d4c20898fc6a6deafbab11f4601091ae7b5262d7"
+    "sha256": "412ac3e19f30ee97a1c7680ad0f8f4ca8fb83b17a5a7ce9f2f14aefe2c121116"
   },
   "familyID": "nhentai",
   "icon": {
@@ -47,5 +47,5 @@
   "releaseTrack": "stable",
   "status": "active",
   "universalLink": "https://synthetiq.uk/manga/modules/nhentai",
-  "version": "1.0.2"
+  "version": "1.0.3"
 }

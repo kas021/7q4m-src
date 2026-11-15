@@ -373,12 +373,12 @@
     if (typeof input === "string") return input.trim();
     if (input && typeof input === "object") {
       const terms = [];
+      const tags = [].concat(input.tags || [], input.tag || []).map((t) => nonEmpty(t)).filter(Boolean);
       const text = String(input.text || input.query || input.q || "").trim();
-      if (text) terms.push(text);
-      for (const tag of [].concat(input.tags || [], input.tag || [])) {
-        const name = nonEmpty(tag);
-        if (name) terms.push(`tag:${name}`);
-      }
+      // With explicit tags the tag is the query; raw text alongside it is only
+      // a hint and would otherwise be parsed as separate, unmatched terms.
+      if (tags.length) for (const name of tags) terms.push(`tag:${name}`);
+      else if (text) terms.push(text);
       for (const tag of [].concat(input.excludeTags || [])) {
         const name = nonEmpty(tag);
         if (name) terms.push(`-tag:${name}`);
