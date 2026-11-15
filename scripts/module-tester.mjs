@@ -476,7 +476,11 @@ if (slug === "novelfire") {
           if (/\/api\/v2\/cdn/i.test(u)) return fixtureResponse((await fixture("cdn.json")) || "{}");
           if (/\/api\/v2\/galleries\/popular/i.test(u) && home) return fixtureResponse(home);
           if (/\/api\/v2\/galleries\/random/i.test(u)) return fixtureResponse((await fixture("random.json")) || "{}");
-          if (/\/api\/v2\/tags\/tag\//i.test(u)) return fixtureResponse((await fixture("tag-meta.json")) || "{}");
+          if (/\/api\/v2\/tags\//i.test(u)) {
+            const known = /big-breasts|yuri|nakadashi|full-color/i.test(u);
+            if (known) return fixtureResponse((await fixture("tag-meta.json")) || "{}");
+            return fixtureResponse('{"error":"Tag not found"}', 404);
+          }
           if (/\/api\/v2\/galleries\/tagged\?/i.test(u)) {
             const taggedPage2 = await fixture("tagged-page2.json");
             if (/[?&]page=2(?:&|$)/.test(u) && taggedPage2) return fixtureResponse(taggedPage2);

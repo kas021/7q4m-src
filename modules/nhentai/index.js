@@ -30,6 +30,8 @@
   const SEARCH_PATH = "/api/v2/search";
   const TAGS_PATH = "/api/v2/tags";
 
+  const TAG_RESOLVE_ORDER = ["tag", "artist", "group", "parody", "character", "category"];
+  const slugResolutions = new Map();
   const PAGE_SIZE = 25;
   const MAX_PAGE_INDEX = 10000;
   // Home rails beyond the popular/newest shelves: broad tags that always have
@@ -338,10 +340,52 @@
     return { type, name, slug: normalizeSlug(name) };
   }
 
+  // A plain query that exactly names a tag, artist, group, parody, character or
+  // category is a catalogue, not a title match: resolve it against those
+  // namespaces so a creator's name returns their whole body of work (deep and
+  // paginated) instead of the handful of titles that happen to embed the text.
+  async function resolvePlainQuery(text) {
+    const slug = normalizeSlug(text);
+    if (!slug) return null;
+    if (slugResolutions.has(slug)) return slugResolutions.get(slug);
+    let found = null;
+    for (const type of TAG_RESOLVE_ORDER) {
+      try {
+        const meta = await fetchJSON(
+          `${API_URL}${TAGS_PATH}/${type}/${encodeURIComponent(slug)}`,
+          LIST_BYTE_HINT,
+        );
+        if (meta && /^\d{1,9}$/.test(nonEmpty(meta.id))) {
+          found = { type, slug };
+          break;
+        }
+      } catch (error) {
+        if (!error || (error.status !== 404 && error.status !== 400)) break;
+      }
+    }
+    slugResolutions.set(slug, found);
+    return found;
+  }
+
+  // The app may pass a filter object (niche search): fold tags, exclusions and
+  // language into nhentai's own query syntax instead of dropping them.
   function searchQuery(input) {
     if (typeof input === "string") return input.trim();
     if (input && typeof input === "object") {
-      return String(input.text || input.query || input.q || "").trim();
+      const terms = [];
+      const text = String(input.text || input.query || input.q || "").trim();
+      if (text) terms.push(text);
+      for (const tag of [].concat(input.tags || [], input.tag || [])) {
+        const name = nonEmpty(tag);
+        if (name) terms.push(`tag:${name}`);
+      }
+      for (const tag of [].concat(input.excludeTags || [])) {
+        const name = nonEmpty(tag);
+        if (name) terms.push(`-tag:${name}`);
+      }
+      const language = nonEmpty(input.language || "");
+      if (language) terms.push(`language:${language}`);
+      return terms.join(" ").trim();
     }
     return "";
   }
@@ -564,17 +608,33 @@
     if (/^__feed:/i.test(text)) {
       return discoveryFeed(text.slice("__feed:".length), currentPage);
     }
+    // Trailing filter terms (language:, -tag:) belong to the query, not the name.
+    const namePart = (value) => value.replace(/\s+(?:-?tag:|language:)\S+/gi, "").trim();
     if (/^tag:/i.test(text)) {
-      return tagResults(text.slice("tag:".length), "tag", currentPage);
+      return tagResults(namePart(text.slice("tag:".length)), "tag", currentPage);
     }
     if (/^language:/i.test(text)) {
-      return tagResults(text.slice("language:".length), "language", currentPage);
+      return tagResults(namePart(text.slice("language:".length)), "language", currentPage);
     }
     const bare = text.match(/^(artist|group|parody|character|category):(.+)$/i);
     if (bare) {
-      return tagResults(bare[2], bare[1].toLowerCase(), currentPage);
+      return tagResults(namePart(bare[2]), bare[1].toLowerCase(), currentPage);
     }
     if (!text) return newestResults(currentPage);
+    // A filter object (or any composed query) carries tag terms that the
+    // full-text endpoint cannot read; browse the first tag instead.
+    const tagTerm = text.match(/(?:^|\s)tag:([^\s]+)/);
+    if (tagTerm) return tagResults(tagTerm[1], "tag", currentPage);
+    let resolved = null;
+    try {
+      // Only bare single queries resolve; once terms carry a namespace or an
+      // exclusion the composed query goes straight to the text/search endpoint.
+      if (!/[:]/.test(text)) resolved = await resolvePlainQuery(text);
+    } catch (_) {
+      // Resolution is an enhancement; a 429 or hiccup must not fail the search.
+      resolved = null;
+    }
+    if (resolved) return tagResults(`${resolved.type}:${resolved.slug}`, resolved.type, currentPage);
     return searchText(text, currentPage);
   }
 

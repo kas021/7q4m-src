@@ -147,6 +147,8 @@ async function offlineShim() {
     if (parsed.pathname === "/api/v2/tags/tag/big-breasts") return jsonResponse(tagMeta);
     if (parsed.pathname === "/api/v2/tags/language/english") return jsonResponse(languageEnglish);
     if (parsed.pathname === "/api/v2/tags/tag/does-not-exist") return jsonResponse(notFound, 404);
+    // Plain-query resolution probes every namespace; anything uncaptured is a 404.
+    if (parsed.pathname.startsWith("/api/v2/tags/")) return jsonResponse(notFound, 404);
     if (parsed.pathname === "/api/v2/search") {
       if (parsed.searchParams.get("query") === "zzzz-no-match") return jsonResponse(emptySearch);
       return jsonResponse(search);
